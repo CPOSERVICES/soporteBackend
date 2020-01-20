@@ -24,9 +24,9 @@ app.set('views', path.join(__dirname, 'views'));
 //middlewares
 app.use(morgan('dev'));
 app.use(myConnection(mysql, {
-    host: 'localhost',
-    user: 'root',
-    password: 'cpo.2020',
+    host: 'ls-17565547894c9a268ff9a27679de428a826f78bc.cf86jfzpapgg.us-east-1.rds.amazonaws.com',
+    user: 'dbmasteruser',
+    password: 'mou]N0l(=7(;.*barOb1?|NXyzc42{zo',
     port: 3306,
     database: 'soporte'
 }, 'single'));
@@ -80,5 +80,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.listen(3000, () => {
     console.log('Express server puerto 3000: \x1b[32m%s\x1b[0m', 'online');
 });
+<<<<<<< HEAD
 
 //require('./handlers/email');
+=======
+>>>>>>> 326ba75ec61fc9c951807ce6996c90bb98796cbd
