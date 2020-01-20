@@ -7,10 +7,9 @@ var myConnection = require('express-myconnection');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var cors = require('cors');
-//var nodeMailer = require("nodemailer");
 //importacion de rutas
 var appRoutes = require('./routes/routes');
-var email = require('./handlers/email');
+
 
 //inicializacion
 var app = express();
