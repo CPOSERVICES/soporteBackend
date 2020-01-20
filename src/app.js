@@ -7,8 +7,10 @@ var myConnection = require('express-myconnection');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var cors = require('cors');
+//var nodeMailer = require("nodemailer");
 //importacion de rutas
 var appRoutes = require('./routes/routes');
+var email = require('./handlers/email');
 
 //inicializacion
 var app = express();
@@ -44,6 +46,8 @@ app.use(bodyParser.json())
 /*=========================LOGIN=========================*/
 app.post('/login', appRoutes)
 
+
+
 /*=========================USUARIOS=========================*/
 app.get('/soportes', appRoutes);
 app.get('/soporte/:id', appRoutes);
@@ -57,12 +61,18 @@ app.get('/tecnicoA/:id',appRoutes);
 app.get('/tecnico/:id', appRoutes);
 
 /*=========================MASTER=========================*/
-app.get('/soportesC', appRoutes)
+app.get('/soportesC', appRoutes);
 app.get('/soportesR', appRoutes);
 app.post('/soporteComentario', appRoutes);
 
 /*=========================COMUN=========================*/
-app.get('/comentarios/:id', appRoutes)
+app.get('/comentarios/:id', appRoutes);
+app.post('/enviarU', appRoutes);
+app.post('/enviarT', appRoutes);
+app.get('/obtenerMails/:id', appRoutes);
+
+
+
 
 //archivos estaticos
 app.use(express.static(path.join(__dirname, 'public')));
@@ -71,3 +81,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.listen(3000, () => {
     console.log('Express server puerto 3000: \x1b[32m%s\x1b[0m', 'online');
 });
+
+//require('./handlers/email');
